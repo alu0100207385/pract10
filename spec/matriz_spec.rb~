@@ -46,25 +46,5 @@ describe Matriz do
         aux.should eq(true)
     end
   end
-  
-  describe "# Otras operaciones" do
-    it "- Traspuesta de una matriz densa" do
-      (@m2==@m2.t).should eq (false)
-    end
-    it "- Traspuesta de una matriz dispersa" do
-      (@m5==@m5.t).should eq (false)
-    end
-    it "- Comparador de igualdad entre densas" do
-       (@m1==@m1).should eq(true)
-    end
-    it "- Comparador de igualdad entre dispersas" do
-       (@m5==@m5).should eq(true)
-    end
-    it "- Comparador de igualdad entre densas y dispersas" do
-      	@m9 = Matriz_densa.new(2,2)
-	@m9.llenar([[0,-1],[0,0]])
-       (@m5==@m9).should eq(true)
-    end
 
-  end
 end
