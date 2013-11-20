@@ -37,7 +37,7 @@ describe Matriz do
     it "- Contenido de la matriz densa" do
         @m9 = Matriz_densa.new(2,2)
 	@m9.llenar([[1,2],[2,3]])
-        (@m1 == @m9).should eq(true)
+        (@m1==@m9).should eq(true)
     end
     it "- Contenido de la matriz dispersa" do
 	@m9 = Matriz_dispersa.new(2,2)
