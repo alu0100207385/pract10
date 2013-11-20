@@ -65,6 +65,128 @@ describe Matriz do
 	@m9.llenar([[0,-1],[0,0]])
        (@m5==@m9).should eq(true)
     end
-
+  end
+ 
+  describe "# Operaciones de matrices: "do
+    it "- Se pueden sumar matrices densas de enteros" do
+      @m9 = Matriz_densa.new(2,2)
+      @m9.llenar([[0,3],[4,-2]])
+      (@m1+@m2).should == @m9
+    end
+    it "- Se pueden sumar matrices densas de racionales" do
+      @m9 = Matriz_densa.new(2,2)
+      @m9.llenar([[NumerosRacionales.new(3, 2),NumerosRacionales.new(8, 5)],[NumerosRacionales.new(51, 40),NumerosRacionales.new(199, 150)]])
+      (@m3+@m4).should == @m9
+    end
+    it "- Se pueden sumar matrices dispersas de enteros" do
+      @m9 = Matriz_dispersa.new(2,2)
+      @m9.llenar([[0,1],[1,0]],[-1,5])
+      (@m5+@m6).should == @m9
+    end
+    it "- Se pueden sumar matrices dispersas de racionales" do
+      @m9 = Matriz_dispersa.new(2,2)
+      @m9.llenar([[0,0],[1,1]],[NumerosRacionales.new(5, 3),NumerosRacionales.new(1, 2)])
+      (@m7+@m8).should == @m9
+    end  
+    it "- Se pueden sumar matrices de enteros entre las distintas clases" do
+      @m9 = Matriz_densa.new(2,2)
+      @m9.llenar([[-1,1],[7,-5]])
+      (@m2+@m6).should == @m9
+    end
+    it "- Se pueden sumar matrices de racionales entre las distintas clases" do
+      @m9 = Matriz_densa.new(2,2)
+      @m9.llenar([[NumerosRacionales.new(8, 3),NumerosRacionales.new(1, 1)],[NumerosRacionales.new(1, 1),NumerosRacionales.new(1, 1)]])
+      (@m3+@m8).should == @m9
+    end
+    it "- Se pueden sumar matrices de enteros con racionales entre las distintas clases" do
+      @m9 = Matriz_densa.new(2,2)
+      @m9.llenar([[NumerosRacionales.new(2, 3),NumerosRacionales.new(1, 1)],[NumerosRacionales.new(2, 1),NumerosRacionales.new(-5, 1)]])
+      (@m2+@m8).should == @m9
+    end
+    
+    
+    it "- Se pueden restar matrices densas de enteros" do
+      @m9 = Matriz_densa.new(2,2)
+      @m9.llenar([[2,1],[0,8]])
+      (@m1-@m2).should == @m9
+    end
+    it "- Se pueden restar matrices densas de racionales" do
+      @m9 = Matriz_densa.new(2,2)
+      @m9.llenar([[NumerosRacionales.new(1, 2),NumerosRacionales.new(2, 5)],[NumerosRacionales.new(29, 40),NumerosRacionales.new(101, 150)]])
+      (@m3-@m4).should == @m9
+    end
+    it "- Se pueden restar matrices dispersas de enteros" do
+      @m9 = Matriz_dispersa.new(2,2)
+      @m9.llenar([[0,1],[1,0]],[-1,-5])
+      (@m5-@m6).should == @m9
+    end
+    it "- Se pueden restar matrices dispersas de racionales" do
+      @m9 = Matriz_dispersa.new(2,2)
+      @m9.llenar([[0,0]],[NumerosRacionales.new(-5, 3)])
+      (@m7-@m8).should == @m9
+    end  
+    it "- Se pueden restar matrices de enteros entre las distintas clases" do
+      @m9 = Matriz_densa.new(2,2)
+      @m9.llenar([[-1,1],[-3,-5]])
+      (@m2-@m6).should == @m9
+    end
+    it "- Se pueden restar matrices de racionales entre las distintas clases" do
+      @m9 = Matriz_densa.new(2,2)
+      @m9.llenar([[NumerosRacionales.new(-2, 3),NumerosRacionales.new(1, 1)],[NumerosRacionales.new(1, 1),NumerosRacionales.new(1, 1)]])
+      (@m3-@m8).should == @m9
+    end
+    it "- Se pueden restar matrices de enteros con racionales entre las distintas clases" do
+      @m9 = Matriz_densa.new(2,2)
+      @m9.llenar([[NumerosRacionales.new(-8, 3),NumerosRacionales.new(1, 1)],[NumerosRacionales.new(2, 1),NumerosRacionales.new(-5, 1)]])
+      (@m2-@m8).should == @m9
+    end
+    
+    
+    it "- Producto escalar de densas con enteros" do
+      @m9=Matriz_densa.new(2,2)
+      @m9.llenar([[-2,2],[4,-10]])
+      (@m2*2)==@m9
+    end
+    it "- Producto escalar de densas con racionales" do
+      @m9=Matriz_densa.new(2,2)
+      @m9.llenar([[NumerosRacionales.new(4, 1),NumerosRacionales.new(4, 1)],[NumerosRacionales.new(4, 1),NumerosRacionales.new(4, 1)]])
+      (@m3*4)==@m9
+    end
+    it "- Producto escalar de dispersas con enteros" do
+      @m9=Matriz_dispersa.new(2,2)
+      @m9.llenar([[0,1]],[-2])
+      (@m5*2)==@m9
+    end
+    it "- Producto escalar de dispersas con racionales" do
+       @m9=Matriz_dispersa.new(2,2)
+       @m9.llenar([[0,0]],[NumerosRacionales.new(20,3)])
+       (@m8*4)==@m9
+    end
+    
+    it "- Maximo de densas con enteros" do
+      @m2.max==2
+    end
+    it "- Maximo de densas con racionales" do
+      @m3.max==NumerosRacionales.new(1,1)
+    end
+    it "- Minimo de densas con enteros" do
+      @m2.min==-5
+    end
+    it "- Minimo de densas con racionales" do
+      @m3.min==NumerosRacionales.new(1,1)
+    end
+    
+    it "- Maximo de dispersas con enteros" do
+      @m5.max==0
+    end
+    it "- Maximo de dispersas con racionales" do
+      @m8.max==NumerosRacionales.new(5,3)
+    end
+    it "- Minimo de dispersas con enteros" do
+      @m5.min==-1
+    end
+    it "- Minimo de dispersas con racionales" do
+      @m8.min==NumerosRacionales.new(0,1)
+    end
   end
 end
