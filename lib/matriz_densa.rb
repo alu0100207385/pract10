@@ -170,4 +170,28 @@ class Matriz_densa < Matriz
     nueva
   end
   
+  def max
+    r=-9999999
+    for i in (0...@fil)
+      for j in (0...@col)
+	if ((mat[i][j]).to_f > r)
+	  r = mat[i][j]
+	end
+      end
+    end
+    r
+  end
+
+  def min
+    r= 9999999
+    for i in (0...@fil)
+      for j in (0...@col)
+	if ((mat[i][j]).to_f < r)
+	  r = mat[i][j]
+	end
+      end
+    end
+    r
+  end
+  
 end
