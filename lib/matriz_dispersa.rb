@@ -74,3 +74,13 @@ end
       false
     end #if
   end
+  
+  def t #traspuesta
+    nueva = Matriz_dispersa.new(@col,@fil)
+    for i in (0...@pos.size)
+      nueva.pos << [@pos[i][1],@pos[i][0]]
+      nueva.dato << @dato[i]
+    end
+    nueva
+  end
+
