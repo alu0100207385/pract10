@@ -1,6 +1,6 @@
 #Fichero de Rakefile para Guard
 
-#!/bin/env rake
+#!/usr/bin/env rake
 require "bundler/gem_tasks"
 
 $:.unshift File.dirname(__FILE__) + 'lib'
