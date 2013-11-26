@@ -7,7 +7,8 @@ class Matriz_dispersa < Matriz
   
   def initialize (m,n)
     raise TypeError, "Error. Tipo de dimensiones incorrectas" if ((m < 0) or (n < 0))
-    @fil, @col = m, n
+    super
+#     @fil, @col = m, n
     @pos = Array.new(0){}
     @dato = Array.new(0){}
   end
@@ -280,7 +281,7 @@ class Matriz_dispersa < Matriz
     r = 999999
     aux=dato
     aux<< 0
-    for i in (0...@dato.size)
+    for i in (0...@dato.size) 
       if (aux[i].to_f<r)
 	r=aux[i]
       end

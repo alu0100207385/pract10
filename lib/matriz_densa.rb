@@ -7,7 +7,8 @@ class Matriz_densa < Matriz
   
   def initialize (m,n)
     raise TypeError, "Error. Tipo de dimensiones incorrectas" if ((m < 0) or (n < 0))
-    @fil, @col = m, n
+    super
+#     @fil, @col = m, n
     @mat = Array.new(@fil) {Array.new(@col)}
   end
   
